@@ -1,0 +1,13 @@
+<schema>
+    <!-- generic -->
+    <field name='AT_type' type='string'/>
+    <field name='name' type='text_en'/>
+    <field name='identifier' type='string'/>
+    <field name='description' type='text_en'/>
+    <field name='url' type='string'/>
+    <!-- from DataCatalog -->
+    <field name='alternateName' type='text_en' multiValued='true'/>
+    <field name='keywords' type='text_en'/>
+    <!-- from PhysicalEntity -->
+    <field name='additionalType' type='string'/>
+</schema>
