@@ -1,0 +1,18 @@
+{
+	"description" : ["Text"],
+	"keywords" : ["Text"],
+	"name" : ["Text"],
+	"provider" : ["Organization", "Person"],
+	"rdf:type" : ["URL"],
+	"url" : ["URL"],
+	"alternateName" : ["Text"],
+	"citation" : ["CreativeWork", "Text"],
+	"dataset" : ["Dataset"],
+	"dateCreated" : ["Date", "DateTime"],
+	"identifier" : ["PropertyValue", "Text", "URL"],
+	"license" : ["CreativeWork", "URL"],
+	"publication" : ["PublicationEvent"],
+	"sourceOrganization" : ["Organization"],
+	"dateModified" : ["Date", "DateTime"],
+	"fileFormat" : ["Text", "URL"]
+}

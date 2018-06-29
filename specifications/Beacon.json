@@ -1,0 +1,14 @@
+{
+	"dataset" : ["DataCatalog"],
+	"name" : ["Text"],
+	"potentialAction" : ["Action"],
+	"provider" : ["Organization", "Person"],
+	"rdf:type" : ["URL"],
+	"supportedRefs" : ["Text"],
+	"url" : ["URL"],
+	"aggregator" : ["Boolean"],
+	"description" : ["Text"],
+	"identifier" : ["PropertyValue", "Text", "URL"],
+	"version" : ["Number", "Text"],
+	"sameAs" : ["URL"]
+}

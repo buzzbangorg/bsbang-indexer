@@ -1,0 +1,19 @@
+{
+	"identifier" : ["PropertyValue", "Text", "URL"],
+	"mainEntity" : ["Thing"],
+	"rdf:type" : ["URL"],
+	"additionalType" : ["URL"],
+	"additionalProperty" : ["PropertyValue"],
+	"citation" : ["CreativeWork", "Text"],
+	"dateCreated" : ["Date", "DateTime"],
+	"dateModified" : ["Date", "DateTime"],
+	"datePublished" : ["Date"],
+	"distribution" : ["DataDownload"],
+	"image" : ["ImageObject", "URL"],
+	"isBasedOn" : ["CreativeWork", "Product", "URL"],
+	"isBasisFor" : ["CreativeWork", "Product", "URL"],
+	"keywords" : ["Text"],
+	"sameAs" : ["URL"],
+	"seeAlso" : ["Thing", "URL"],
+	"url" : ["URL"]
+}

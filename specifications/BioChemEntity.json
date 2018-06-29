@@ -1,0 +1,19 @@
+{
+	"additionalProperty" : ["PropertyValue"],
+	"contains" : ["BioChemEntity", "URL"],
+	"hasRepresentation" : ["PropertyValue", "Text", "URL"],
+	"isContainedIn" : ["BioChemEntity", "URL"],
+	"location" : ["Place", "PostalAddress", "PropertyValue", "Text", "URL"],
+	"additionalType" : ["URL"],
+	"alternateName" : ["Text"],
+	"description" : ["Text"],
+	"disambiguatingDescription" : ["Text"],
+	"identifier" : ["PropertyValue", "Text", "URL"],
+	"image" : ["ImageObject", "URL"],
+	"mainEntityOfPage" : ["CreativeWork", "URL"],
+	"name" : ["Text"],
+	"potentialAction" : ["Action"],
+	"sameAs" : ["URL"],
+	"subjectOf" : ["CreativeWork", "Event"],
+	"url" : ["URL"]
+}

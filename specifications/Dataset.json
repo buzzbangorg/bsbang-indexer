@@ -1,0 +1,16 @@
+{
+	"description" : ["Text"],
+	"identifier" : ["PropertyValue", "Text", "URL"],
+	"keywords" : ["Text"],
+	"name" : ["Text"],
+	"rdf:type" : ["URL"],
+	"url" : ["URL"],
+	"citation" : ["CreativeWork", "Text"],
+	"creator" : ["Organization", "Person"],
+	"distribution" : ["DataDownload"],
+	"includedInDataCatalog" : ["DataCatalog"],
+	"license" : ["CreativeWork", "URL"],
+	"measurementTechnique" : ["Text", "URL"],
+	"variableMeasured" : ["PropertyValue", "Text"],
+	"version" : ["Number", "Text"]
+}
