@@ -1,0 +1,18 @@
+{
+	"ChEBI:reagent" : ["BioChemEntity", "Text", "URL"],
+	"instrument" : ["Text", "URL", "Thing"],
+	"keywords" : ["Text"],
+	"purpose" : ["Text"],
+	"rdf:type" : ["URL"],
+	"sample" : ["BioChemEntity", "Text", "URL"],
+	"citation" : ["CreativeWork",  "Text"],
+	"duration" : ["Duration"],
+	"hasPart" : ["CreativeWork"],
+	"identifier" : ["PropertyValue", "Text", "URL"],
+	"isPartOf" : ["CreativeWork"],
+	"license" : ["CreativeWork", "URL"],
+	"software" : ["SoftwareApplication"],
+	"step" : ["CreativeWork", "Text"],
+	"additionalType" : ["URL"],
+	"isBasedOn" : ["CreativeWork", "URL"]
+}

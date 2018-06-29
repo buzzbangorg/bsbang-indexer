@@ -1,0 +1,21 @@
+{
+	"identifier" : ["PropertyValue", "Text", "URL"],
+	"name" : ["Text"],
+	"SIO:010083" : ["BioChemEntity", "Gene"],
+	"SO:associated_with" : ["MedicalCondition", "URL"],
+	"description" : ["Text"],
+	"image" : ["ImageObject", "URL"],
+	"isContainedIn" : ["BioChemEntity"],
+	"url" : ["URL"],
+	"RO:enables" : ["CategoryCode", "PropertyValue"],
+	"RO:involved in" : ["CategoryCode", "PropertyValue"],
+	"additionalProperty" : ["PropertyValue"],
+	"additionalType" : ["URL"],
+	"alternateName" : ["Text"],
+	"categoryCode" : ["CategoryCode"],
+	"contains" : ["BioChemEntity", "ProteinAnnotation"],
+	"hasRepresentation" : ["PropertyValue", "Text", "URL"],
+	"location" : ["Place", "PostalAddress", "PropertyValue", "Text", "URL"],
+	"mainEntityOfPage" : ["CreativeWork", "URL"],
+	"sameAs" : ["URL"]
+}

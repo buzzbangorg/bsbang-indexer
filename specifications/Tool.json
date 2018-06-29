@@ -1,0 +1,20 @@
+{
+	"description" : ["Text"],
+	"featureList" : ["Text", "URL"],
+	"name" : ["Text"],
+	"rdf:type" : ["URL"],
+	"softwareVersion" : ["Text"],
+	"url" : ["URL"],
+	"citation" : ["CreativeWork", "Text"],
+	"license" : ["URL"],
+	"publisher" : ["Organization", "Person"],
+	"applicationCategory" : ["Text"],
+	"dateCreated" : ["Date", "DateTime"],
+	"dateModified" : ["Date", "DateTime"],
+	"hasPart" : ["CreativeWork"],
+	"offers" : ["Offer"],
+	"operatingSystem" : ["Text"],
+	"potentialAction" : ["URL"],
+	"softwareHelp" : ["CreativeWork"],
+	"softwareRequirements" : ["Text", "URL"]
+}

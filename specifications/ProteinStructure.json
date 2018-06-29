@@ -1,0 +1,20 @@
+{
+	"SIO:010081": ["BioChemEntity", "URL"],
+	"identifier" : ["PropertyValue", "Text", "URL"],
+	"organism" : ["BioChemEntity"],
+	"rdf:type" : ["URL"],
+	"SIO:000983" : ["MedicalCondition", "URL"],
+	"additionalType" : ["URL"],
+	"alternateName" : ["Text"],
+	"description" : ["Text"],
+	"name" : ["Text"],
+	"url" : ["URL"],
+	"additionalProperty" : ["PropertyValue"],
+	"contains" : ["BioChemEntity", "URL"],
+	"hasRepresentation" : ["PropertyValue", "Text", "URL"],
+	"image" : ["ImageObject", "URL"],
+	"isContainedIn" : ["BioChemEntity", "URL"],
+	"location" : ["Place", "PostalAddress", "PropertyValue", "Text", "URL"],
+	"mainEntityOfPage" : ["DataRecord", "URL"],
+	"sameAs" : ["URL"]
+}
