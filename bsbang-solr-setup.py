@@ -1,32 +1,17 @@
 #!/usr/bin/env python3
-
-from lxml import etree, builder
-import requests
-import logging
+import os
 import json
+import logging
+import requests
+import argparse
+from lxml import etree
+from setup.schema import SolrSchema
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 
-class SolrSchema:
-    def __init__(self, specfile):
-        self.E = builder.ElementMaker()
-        self.ROOT = self.E.schema
-        with open(specfile) as f:
-            self.specifications = json.load(f)
-        self.schema = self.build()
-
-    def fields(self):
-        result = []
-        for specType, specValue in self.specifications.items():
-                # print(specType, specValue)
-            result.append(self.E("field", name=specType, type='string'))
-        return result
-
-    def build(self):
-        return self.ROOT(*self.fields())
-
+# FUNCTIONS
 def post_to_solr(json):
     headers = {'Content-type': 'application/json'}
     logger.info('Posting json - [%s]', json)
@@ -34,10 +19,17 @@ def post_to_solr(json):
     logger.info('Response json - [%s]', r.text)
 
 
+# MAIN
+parser = argparse.ArgumentParser('Index extracted JSONLD into Solr.')
+parser.add_argument('path_to_specs_dir', help='Path to the directory used to store bioschemas specifications.')
+args = parser.parse_args()
+
+specifications = [args.path_to_specs_dir + x for x in os.listdir(args.path_to_specs_dir)]
+
 solrPath = 'http://localhost:8983/solr/buzzbang/'
 solrSchemaPath = solrPath + 'schema'
 
-configXml = SolrSchema('../specifications/BioChemEntity.json')
+configXml = SolrSchema(specifications)
 # print(etree.tostring(configXml.schema, pretty_print=True))
 
 for fieldElem in configXml.schema.findall('./field'):
