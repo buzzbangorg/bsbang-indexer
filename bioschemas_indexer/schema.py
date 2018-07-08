@@ -4,6 +4,7 @@ from lxml import builder
 
 
 class SolrSchema:
+
     def __init__(self, specdir):
         self.E = builder.ElementMaker()
         self.ROOT = self.E.schema
@@ -20,7 +21,8 @@ class SolrSchema:
 
         for specType, specValue in self.specifications.items():
             # print(specType, specValue)
-            result.append(self.E("field", name= specname + '.' + specType, type='string'))
+            result.append(self.E("field", name=specname +
+                                 '.' + specType, type='string'))
         return result
 
     def build(self):

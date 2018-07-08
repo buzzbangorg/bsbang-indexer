@@ -21,10 +21,12 @@ def post_to_solr(json):
 
 # MAIN
 parser = argparse.ArgumentParser('Index extracted JSONLD into Solr.')
-parser.add_argument('path_to_specs_dir', help='Path to the directory used to store bioschemas specifications.')
+parser.add_argument('path_to_specs_dir',
+                    help='Path to the directory used to store bioschemas specifications.')
 args = parser.parse_args()
 
-specifications = [args.path_to_specs_dir + x for x in os.listdir(args.path_to_specs_dir)]
+specifications = [args.path_to_specs_dir +
+                  x for x in os.listdir(args.path_to_specs_dir)]
 
 solrPath = 'http://localhost:8983/solr/buzzbang/'
 solrSchemaPath = solrPath + 'schema'
