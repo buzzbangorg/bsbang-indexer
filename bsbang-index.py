@@ -38,34 +38,41 @@ def flatten(d, bioschemas):
         open(d, d['@type'], bioschemas)
 
 
-def collect_data(mongodb):
-    n = 10
+def collect_data(mongodb, q):
+    n = 1000
     global last_id
+    global struct
     collection = indexer.connect_db(mongodb)
     bioschemas = indexer.get_speclist()
-    data, last_id = indexer.read_mongodb(
-        collection, page_size=n, last_id=last_id)
-    sendSolr = []
-    for item in data:
-        global struct
-        flatten(item, bioschemas)
-        sendSolr.append(struct)
-        struct = {}
-    logger.info("collected %d docs", n)
-    return sendSolr
+    len_db = 50
+    for i in range(len_db):
+        data, last_id = indexer.read_mongodb(
+            collection, page_size=n, last_id=last_id)
+        for item in data:
+            flatten(item, bioschemas)
+            q.put(struct)
+            struct = {}
+        logger.info("collected %d docs", n)
+        i += 1
+    q.put(False)
 
 
-def index_data(solr, jsonld):
-    solr_endpoint = 'http://' + solr['SOLR_SERVER'] + ':' + \
-        solr['SOLR_PORT'] + '/solr/' + solr['SOLR_CORE'] + '/'
-    headers = {'Content-type': 'application/json'}
-    # logger.info('Posting %s', self.jsonld)
-    r = requests.post(solr_endpoint + 'update/json/docs' +
-                      '?commit=true', json=jsonld, headers=headers)
-    if r.status_code != 200:
-        logger.error('Could not post to Solr: %s', r.text)
-    else:
-        logger.info("posted %d docs", len(jsonld))
+def index_data(solr, q):
+    while True:
+        # print(q.qsize())
+        jsonld = []
+        for i in iter(q.get, False):
+            jsonld.append(i)
+        solr_endpoint = 'http://' + solr['SOLR_SERVER'] + ':' + \
+            solr['SOLR_PORT'] + '/solr/' + solr['SOLR_CORE'] + '/'
+        headers = {'Content-type': 'application/json'}
+        logger.info('Posting doc')
+        r = requests.post(solr_endpoint + 'update/json/docs' +
+                          '?commit=true', json=jsonld, headers=headers)
+        if r.status_code != 200:
+            logger.error('Could not post to Solr: %s', r.text)
+        if q.empty() == True:
+            break
 
 
 # MAIN
@@ -76,7 +83,15 @@ last_id = None
 ############################################################
 start_time = timeit.default_timer()
 ############################################################
-sendSolr = collect_data(mongodb)
-index_data(solr, sendSolr)
+q = Queue()
+process_one = Process(target=collect_data, args=(mongodb, q))
+process_two = Process(target=index_data, args=(solr, q))
+process_one.start()
+process_two.start()
+q.close()
+q.join_thread()
+
+process_one.join()
+process_two.join()
 ############################################################
 print(timeit.default_timer() - start_time)
