@@ -1,7 +1,7 @@
 import os
+import json
 import logging
 import pymongo
-import requests
 from six.moves.configparser import ConfigParser
 
 
@@ -70,3 +70,11 @@ def prettyprint(d, indent=0):
             prettyprint(value, indent + 1)
         else:
             print('\t' * (indent + 1) + str(value), type(value))
+
+
+def match_config(specfile, mongodata):
+    with open(specfile) as f:
+        specifications = json.load(f)
+    matchdata = {key: mongodata[key]
+                 for key in specifications if key in mongodata}
+    return matchdata
