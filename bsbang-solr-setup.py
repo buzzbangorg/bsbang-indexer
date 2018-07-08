@@ -5,7 +5,7 @@ import logging
 import requests
 import argparse
 from lxml import etree
-from setup.schema import SolrSchema
+from bioschemas_indexer.schema import SolrSchema
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -38,7 +38,7 @@ for fieldElem in configXml.schema.findall('./field'):
         'add-field': {
             'name': fieldElem.attrib['name'],
             'type': fieldElem.attrib['type'],
-            'multiValued': fieldElem.get('multiValued', default='false')
+            'multiValued': fieldElem.get('multiValued', default='true')
         }
     }
 
