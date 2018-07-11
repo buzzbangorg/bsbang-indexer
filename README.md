@@ -67,15 +67,29 @@ sudo su - solr -c "/opt/solr/bin/solr delete -c buzzbang"
 **Step 7: Setup and configure buzzbang**
 
 ```
-cd bsbang-crawler-ng/setup
-./solr-setup.py <path-to-bsbang-config-file> --solr-core-url <URL-of-solr-endpoint>
+./bsbang-solr-setup.py <path-to-specifications-directory> 
 
 ```
 
 Example:
 
 ```
-./solr-setup.py ../config/solr-setup.xml --solr-core-url http://localhost:8983/solr/buzzbang/
+./bsbang-solr-setup.py secifications
+```
+
+**Step 8: Use the query and spell check module**
+
+```
+./bsbang-query.py <words>
+./bsbang-spellCheck.py <single-word>
+
+```
+
+Example:
+
+```
+./bsbang-query.py "treatment conditions"
+./bsbang-spellCheck.py extrct
 ```
 
 ## Running the tests
@@ -91,3 +105,7 @@ This project is licensed under the Apache-2.0 License - see the LICENSE file for
 ## Mind Map
 - [ ] MongoDB Pagnation
 - [ ] MongoDB to Solr
+- [ ] Solr and MongoDB multithreading
+- [ ] query parser
+- [ ] Spell Check
+- [ ] Suggester

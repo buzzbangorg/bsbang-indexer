@@ -12,7 +12,7 @@ args = parser.parse_args()
 
 _, solr = indexer.read_conf()
 solrQueryPath = 'http://' + solr['SOLR_SERVER'] + ':' + \
-    solr['SOLR_PORT'] + '/solr/' + solr['SOLR_CORE'] + '/'
+    solr['SOLR_PORT'] + '/solr/' + solr['SOLR_CORE'] + '/select'
 
 params = {'q': args.query, 'defType': 'edismax'}
 
