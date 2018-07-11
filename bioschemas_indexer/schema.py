@@ -21,8 +21,8 @@ class SolrSchema:
 
         for specType, specValue in self.specifications.items():
             # print(specType, specValue)
-            result.append(self.E("field", name=specname +
-                                 '.' + specType, type='string'))
+            result.append(self.E("field", name=specname + '.' +
+                                 specType, type='string', indexed="true", stored="true"))
         return result
 
     def build(self):

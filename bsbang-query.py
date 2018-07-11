@@ -2,13 +2,17 @@
 
 import argparse
 import requests
+from bioschemas_indexer import indexer
 
-solrQueryPath = 'http://localhost:8983/solr/buzzbang/select'
 
 # MAIN
 parser = argparse.ArgumentParser('Run a test query against the Solr instance')
 parser.add_argument('query')
 args = parser.parse_args()
+
+_, solr = indexer.read_conf()
+solrQueryPath = 'http://' + solr['SOLR_SERVER'] + ':' + \
+    solr['SOLR_PORT'] + '/solr/' + solr['SOLR_CORE'] + '/'
 
 params = {'q': args.query, 'defType': 'edismax'}
 
