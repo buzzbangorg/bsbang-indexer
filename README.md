@@ -74,7 +74,7 @@ sudo su - solr -c "/opt/solr/bin/solr delete -c buzzbang"
 Example:
 
 ```
-./bsbang-solr-setup.py secifications
+./bsbang-solr-setup.py specifications
 ```
 
 **Step 8: Use the query and spell check module**
