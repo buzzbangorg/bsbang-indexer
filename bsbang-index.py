@@ -50,7 +50,9 @@ def collect_data(mongodb):
         flatten(item, bioschemas)
         sendSolr.append(struct)
         struct = {}
-    logger.info("collected %d docs", n)
+
+    logger.debug("collected %d docs", n)
+
     return sendSolr
 
 
