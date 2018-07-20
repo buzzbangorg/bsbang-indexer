@@ -33,7 +33,7 @@ def connect_db(mongodb):
         logger.error("MongoDB not connected at %s:%s", mongodb[
                      'MONGODB_SERVER'], mongodb['MONGODB_PORT'])
         sys.exit()
-    logger.info("Connected to MongoDB")
+
     db = client[mongodb['MONGODB_DB']]
     collection = db[mongodb['MONGODB_COLLECTION']]
 
