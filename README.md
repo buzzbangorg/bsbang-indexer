@@ -67,14 +67,8 @@ sudo su - solr -c "/opt/solr/bin/solr delete -c buzzbang"
 **Step 7: Setup and configure buzzbang**
 
 ```
-./bsbang-solr-setup.py <path-to-specifications-directory> 
+./bsbang-solr-setup.py specifications/
 
-```
-
-Example:
-
-```
-./bsbang-solr-setup.py specifications
 ```
 
 **Step 8: Use the query and spell check module**
