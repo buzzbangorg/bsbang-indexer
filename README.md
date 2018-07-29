@@ -67,8 +67,15 @@ sudo su - solr -c "/opt/solr/bin/solr delete -c buzzbang"
 **Step 7: Setup and configure buzzbang**
 
 ```
-./bsbang-solr-setup.py specifications/
+./bsbang-solr-setup.py <path-to-specifications-directory> 
+```
 
+Next, open SolrUI on a browser and select the core where the data is to be indexed. Check the directory location where the Solr core data is going to be saved and relace the solrconfig.xml in that directory with conf/solrconfig.xml file. This will enable the de-duplication mode in solr indexing. You may need root access to replace this file.
+
+Example:
+
+```
+./bsbang-solr-setup.py secifications
 ```
 
 **Step 8: Use the query and spell check module**
@@ -76,7 +83,6 @@ sudo su - solr -c "/opt/solr/bin/solr delete -c buzzbang"
 ```
 ./bsbang-query.py <words>
 ./bsbang-spellCheck.py <single-word>
-
 ```
 
 Example:
