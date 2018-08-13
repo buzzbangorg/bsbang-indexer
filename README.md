@@ -1,8 +1,6 @@
 # bsbang-indexer
 Repository for Apache Solr indexing in Buzzbang Bioschemas crawler
 
-**THIS IS NOT YET COMPLETE, PLEASE DO NOT USE YET**
-
 ## Getting Started
 **Step 1: Create a virtual environment and clone this repo**
 
@@ -92,9 +90,6 @@ Example:
 ./bsbang-spellCheck.py extrct
 ```
 
-## Running the tests
-TBD
-
 ## Contributing
 Please read CONTRIBUTING.md for details on our code of conduct, and the process for submitting pull requests to us.
 
@@ -103,9 +98,12 @@ This project is licensed under the Apache-2.0 License - see the LICENSE file for
 
 
 ## Mind Map
-- [ ] MongoDB Pagnation
-- [ ] MongoDB to Solr
+- [x] MongoDB Pagnation
+- [x] MongoDB to Solr
+- [x] query parser
+- [x] Spell Check
+- [x] Suggester
+- [x] Deduplication
+- [ ] Automated fetching specification from the bioschemas.org
 - [ ] Solr and MongoDB multithreading
-- [ ] query parser
-- [ ] Spell Check
-- [ ] Suggester
+- [ ] Setup deduplicaiton, spell-check and suggester using the solrconfig api 
