@@ -89,7 +89,7 @@ total_indexed = 0
 # logger.info('Indexing %d MongoDB entries', n_docs)
 
 start_time = timeit.default_timer()
-for i in range(int(n_docs / 1000)+1):
+for i in range(int(n_docs / 1000) + 1):
     sendSolr = collect_data(mongodb)
 
     if index_data(solr, sendSolr):
