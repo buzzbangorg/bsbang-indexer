@@ -1,5 +1,5 @@
 # bsbang-indexer
-Repository for Apache Solr indexing in Buzzbang Bioschemas crawler
+Apache Solr indexer for the [Buzzbang crawl data format](https://github.com/buzzbangorg/buzzbang-doc/wiki/Buzzbang-crawl-data-format)
 
 ## Getting Started
 **Step 1: Create a virtual environment and clone this repo**
@@ -18,24 +18,12 @@ cd bsbang-crawler-ng
 pip3 install -r requirements.txt
 ```
 
-**Step 3: Install MongoDB if necessary**
-
-Install MongoDB on your system.
-
-Setup the MongoDB server using MongoDBServer settings in the conf/settings.ini file.
-
-Start and check if the MongoDB server is up using the following commands in another terminal - 
-```
-service mongodb start
-service mongodb status
-``` 
-
-**Step 4: Put initialization arguments in the config/setting.ini file**
+**Step 3: Put initialization arguments in the config/setting.ini file**
 
 The defaults are probably going to be fine but you might want to check them.
 
 
-**Step 5: Install Solr**
+**Step 4: Install Solr**
 
 ** Past this point, we still need to implement indexing of data into Solr **
 
@@ -43,7 +31,7 @@ Install Solr on your system.
 
 Once installed, you may check the running status using the command - ```service solr status``` and you can access the UI in your browser at ```localhost:8983/```
 
-**Step 6: Create a Solr core named buzzbang**
+**Step 5: Create a Solr core named buzzbang**
 
 ```
 sudo su - solr -c "/opt/solr/bin/solr create -c buzzbang"
@@ -62,7 +50,7 @@ TIP: To delete a Solr core permanently, execute the following on the terminal -
 sudo su - solr -c "/opt/solr/bin/solr delete -c buzzbang"
 ```  
 
-**Step 7: Setup and configure buzzbang**
+**Step 6: Setup and configure buzzbang**
 
 ```
 ./bsbang-solr-setup.py <path-to-specifications-directory> 
@@ -76,7 +64,7 @@ Example:
 ./bsbang-solr-setup.py secifications
 ```
 
-**Step 8: Use the query and spell check module**
+**Step 7: Use the query and spell check module**
 
 ```
 ./bsbang-query.py <words>
