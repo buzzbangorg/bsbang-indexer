@@ -18,20 +18,11 @@ cd bsbang-crawler-ng
 pip3 install -r requirements.txt
 ```
 
-**Step 3: Put initialization arguments in the config/setting.ini file**
-
-The defaults are probably going to be fine but you might want to check them.
-
-
-**Step 4: Install Solr**
-
-** Past this point, we still need to implement indexing of data into Solr **
-
-Install Solr on your system.
+**Step 3: Install Solr if necessary**
 
 Once installed, you may check the running status using the command - ```service solr status``` and you can access the UI in your browser at ```localhost:8983/```
 
-**Step 5: Create a Solr core named buzzbang**
+**Step 4: Create a Solr core named buzzbang**
 
 ```
 sudo su - solr -c "/opt/solr/bin/solr create -c buzzbang"
@@ -50,7 +41,17 @@ TIP: To delete a Solr core permanently, execute the following on the terminal -
 sudo su - solr -c "/opt/solr/bin/solr delete -c buzzbang"
 ```  
 
-**Step 6: Setup and configure buzzbang**
+**Step 5: Setup config/settings.ini and configure if necessary**
+
+You will only need to edit this file if you have configured Solr or MongoDB on non-default ports
+, or if you have changed the database or collection name where the crawl is stored.
+
+```
+cd config
+cp settings.ini.example settings.ini
+```
+
+**Step 6: Setup the Buzzbang core**
 
 ```
 ./bsbang-solr-setup.py <path-to-specifications-directory> 
