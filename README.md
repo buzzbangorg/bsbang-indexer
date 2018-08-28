@@ -25,20 +25,8 @@ Once installed, you may check the running status using the command - ```service 
 **Step 4: Create a Solr core named buzzbang**
 
 ```
-sudo su - solr -c "/opt/solr/bin/solr create -c buzzbang"
-```
-
-If you used a different installation location for Solr, use that particular Solr bin path to create a core.  
-
-```
-cd $SOLR/bin
+./solr start
 ./solr create -c buzzbang
-```
-
-TIP: To delete a Solr core permanently, execute the following on the terminal - 
-
-```
-sudo su - solr -c "/opt/solr/bin/solr delete -c buzzbang"
 ```  
 
 **Step 5: Setup config/settings.ini and configure if necessary**
