@@ -29,7 +29,32 @@ Once installed, you may check the running status using the command - ```service 
 ./solr create -c buzzbang
 ```  
 
-**Step 5: Setup config/settings.ini and configure if necessary**
+**Step 5: Configure the buzzbang core**
+
+We want to configure the buzzbang core to do deduplication of entries.  This won't matter for the first indexing run,
+but will be important on subsequent runs to prevent double indexing.
+
+In `$SOLR/solr/server/solr/buzzbang/conf`, locate the entry that looks like
+
+```
+  <!--
+     <updateRequestProcessorChain name="dedupe">
+       <processor class="solr.processor.SignatureUpdateProcessorFactory">
+         <bool name="enabled">true</bool>
+         <str name="signatureField">id</str>
+         <bool name="overwriteDupes">false</bool>
+         <str name="fields">name,features,cat</str>
+         <str name="signatureClass">solr.processor.Lookup3Signature</str>
+       </processor>
+       <processor class="solr.LogUpdateProcessorFactory" />
+       <processor class="solr.RunUpdateProcessorFactory" />
+     </updateRequestProcessorChain>
+    -->
+```
+
+and uncomment it.  
+
+**Step 6: Setup config/settings.ini and configure if necessary**
 
 You will only need to edit this file if you have configured Solr or MongoDB on non-default ports
 , or if you have changed the database or collection name where the crawl is stored.
@@ -39,7 +64,7 @@ cd $BUZZBANG/conf
 cp settings.ini.example settings.ini
 ```
 
-**Step 6: Setup the Buzzbang core**
+**Step 7: Add fields to the Buzzbang core**
 
 ```
 ./bsbang-solr-setup.py <specifications-path> 
@@ -53,7 +78,7 @@ Example:
 ./bsbang-solr-setup.py specifications
 ```
 
-**Step 7: Use the query and spell check module**
+**Step 8: Use the query and spell check module**
 
 ```
 ./bsbang-query.py <words>
