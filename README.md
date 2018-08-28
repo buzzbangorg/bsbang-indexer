@@ -42,7 +42,7 @@ cp settings.ini.example settings.ini
 **Step 6: Setup the Buzzbang core**
 
 ```
-./bsbang-solr-setup.py <path-to-specifications-directory> 
+./bsbang-solr-setup.py <specifications-path> 
 ```
 
 Next, open SolrUI on a browser and select the core where the data is to be indexed. Check the directory location where the Solr core data is going to be saved and relace the solrconfig.xml in that directory with conf/solrconfig.xml file. This will enable the de-duplication mode in solr indexing. You may need root access to replace this file.
@@ -50,7 +50,7 @@ Next, open SolrUI on a browser and select the core where the data is to be index
 Example:
 
 ```
-./bsbang-solr-setup.py secifications
+./bsbang-solr-setup.py specifications
 ```
 
 **Step 7: Use the query and spell check module**
