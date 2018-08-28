@@ -35,7 +35,7 @@ You will only need to edit this file if you have configured Solr or MongoDB on n
 , or if you have changed the database or collection name where the crawl is stored.
 
 ```
-cd config
+cd $BUZZBANG/config
 cp settings.ini.example settings.ini
 ```
 
