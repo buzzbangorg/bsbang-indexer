@@ -114,7 +114,13 @@ Example:
 ./bsbang-solr-setup.py specifications
 ```
 
-**Step 8: Use the query and spell check module**
+**Step 8: Indexing documents from MongoDB to Solr Core**
+
+```
+./bsbang-index.py
+```
+
+**Step 9: Use the query and spell check module**
 
 ```
 ./bsbang-query.py <words>
