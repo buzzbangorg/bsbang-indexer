@@ -31,6 +31,8 @@ Once installed, you may check the running status using the command - ```service 
 
 **Step 5: Configure the buzzbang core**
 
+***Configure Solr core to prevent duplication***
+
 We want to configure the buzzbang core to do deduplication of entries.  This won't matter for the first indexing run,
 but will be important on subsequent runs to prevent double indexing.
 
@@ -53,6 +55,40 @@ In `$SOLR/server/solr/buzzbang/conf`, locate the entry that looks like
 ```
 
 and uncomment it.  
+
+***Configure Solr core to enable suggester module***
+
+Solr can provide suggestions as we type-in our query using the Suggester module, jsut as google does. To enable it in solr we have to put following XML in the solr-config.xml module. Note that, we need to include it in solr before we index any document and we should restart Solr after editing this file using `service solr restart`
+
+Solr will internally build up a library for providing suggestions and it will use only those fields that has been mentioned in this XML. For eg: In the snippet provided below, we are asking Solr to use the "name" field for populating its suggester dictionary. We may provide as many fields as we want using this - 
+
+``` <str name="field">name</str> ``` 
+
+In `$SOLR/server/solr/buzzbang/conf`, paste the following XML - 
+
+```
+    <searchComponent name="suggest" class="solr.SuggestComponent">
+      <lst name="suggester">
+        <str name="name">mySuggester</str>
+        <str name="lookupImpl">FuzzyLookupFactory</str>
+        <str name="dictionaryImpl">DocumentDictionaryFactory</str>
+        <str name="field">name</str>
+        <str name="suggestAnalyzerFieldType">string</str>
+      </lst>
+    </searchComponent>
+
+    <requestHandler name="/suggest" class="solr.SearchHandler"
+                    startup="lazy" >
+      <lst name="defaults">
+        <str name="suggest">true</str>
+        <str name="suggest.count">10</str>
+      </lst>
+      <arr name="components">
+        <str>suggest</str>
+      </arr>
+    </requestHandler>
+```
+
 
 **Step 6: Setup config/settings.ini and configure if necessary**
 
