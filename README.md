@@ -36,7 +36,7 @@ Once installed, you may check the running status using the command - ```service 
 We want to configure the buzzbang core to do deduplication of entries.  This won't matter for the first indexing run,
 but will be important on subsequent runs to prevent double indexing.
 
-In `$SOLR/server/solr/buzzbang/conf`, locate the entry that looks like
+In `$SOLR/server/solr/buzzbang/conf/solrconfig.xml`, locate the entry that looks like
 
 ```
   <!--
